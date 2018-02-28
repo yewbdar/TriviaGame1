@@ -8,5 +8,15 @@ row{
     margin-top: 14%;
 }
 input[type=radio]{
-    display:inline-block;
+    /* display:inline-block;
+     */
+     margin-left: 2%;
+     
 }
+#image{
+  width: 400px;
+  height: 400px;
+}
+/* div{
+    border: 1px solid black;
+} */

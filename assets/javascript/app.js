@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         second: 10,
         intervalId: null,
-        answer: ["1", "1", "3", "4", "1", "3", "2", "1", "4", "4"],
+        answer: ["1", "0", "0", "0", "1", "1", "1", "0", "0", "0"],
         questions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         inCorrectAnswer: 0,
         correctAnswer: 0,
@@ -34,23 +34,37 @@ $(document).ready(function () {
                 if (this.value === this.answer[this.index]) {
                     debugger;
                     $("#" + this.questions[this.index]).hide();
-                    $('#correct-answer').text("your answer is correct");
+                    $("#result").html('well done!!!');
+                    $('#correct-answer').html("Your answer is correct");
+                    $("#image").html("<img src='./images/bravo3.gif'");
                     $("#result").show();
                     this.index++;
                     startTimeOut();
+                    this.isRadioSelect=false;
                 }
                 else {
+                    if(this.answer[this.index]===0){
+                        var ansr=false;
+                    }
+                    else{
+                        var ansr=true;
+                    }
                     $("#" + this.questions[this.index]).hide();
-                    $('#correct-answer').text("not correct");
+                    $("#result").html('ooops!!!');
+                    $('#correct-answer').html("Your are not correct the answer is "+ ansr);
+                    $("#image").html("<img src='../assets/images/bravo2.jpeg'");
                     $("#result").show();
-                    console.log('correct answer');
+                    
                     this.index++;
                     startTimeOut();
+                    this.isRadioSelect=false;
                 }
             }
             else {
                 $("#" + this.questions[this.index]).hide();
-                $('#correct-answer').text("you didn't select the answer");
+                $("#result").html('Time out!!!');
+                $('#correct-answer').html("you didn't select the answer");
+                $("#image").html("<img src='../assets/images/bravo2.jpeg'");
                 $("#result").show();
                 this.index++;
                 startTimeOut();

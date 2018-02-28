@@ -1,109 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
 
     <div class="container">
-        
-             <!-- <div class="col-lg-1 "></div>  -->
-            <div class="page-container col-lg-8 mx-auto bg-info mt-5 p-4"> 
-             
-                <div class="row">  
+
+        <!-- <div class="col-lg-1 "></div>  -->
+        <div class="page-container ">
+
+            <div class="row  col-lg-8 mx-auto bg-info mt-5 p-4">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-8">
-            <div id="time" class="p-4">0:00</div>
-             <button id="start" class="w-10px">Start</button><br/>
-             <div  id="result" >All Done!!
-                <h4 id="correct-answer">0</h4>
-                <!-- <p>Incorrect Answers:</p><h4 id="inCorrect-answer">0</h4>
+                    <div id="time" class="p-3">0:00</div>
+                    <button id="start" class="w-10px">Start</button>
+                    <br/>
+                    <button id="restart">Re start</button>
+                    <div id="result">All Done!!
+                        <h4 id="correct-answer">0</h4>
+                        <div id="image"></div>
+                        <!-- <p>Incorrect Answers:</p><h4 id="inCorrect-answer">0</h4>
                 <p>not Answered:</p><h4 id="not-answer">0</h4>
                   -->
-             </div>
+                    </div>
+                </div>
+
             </div>
-            
+        </div>
+
+        <!-- <form id="form"> -->
+        <!-- <div class="page-container col-lg-8  bg-info  p-4 mr-3 mt-0 "> -->
+
+            <div class="row col-lg-8 mx-auto bg-info mt- p-1">
+                <div class="col-lg-2"></div>
+
+                <div id="1">
+                    <label>1.The average adult human body contains 206 bones. </label>
+                    <br/>
+                    <input type="radio" name="1" value="1" />True
+                    <br/>
+                    <input type="radio" name="1" value="0" />False
+
+                </div>
+                <div id="2">
+                    <label>2 .The Shanghai tower is the tallest building in the world. </label>
+                    <br/>
+                    <input type="radio" name="2" value="1" />True
+                    <br/>
+                    <input type="radio" name="2" value="0" />False
+
+                </div>
+                <div id="3">
+                    <label>3 .Pablo Picasso was Italian. </label>
+                    <br/>
+                    <input type="radio" name="3" value="1" />True
+                    <br/>
+                    <input type="radio" name="3" value="0" />False
+
+                </div>
+                <div id="4">
+                    <label>4 .Cold water is heaver than hot water </label>
+                    <br/>
+                    <input type="radio" name="4" value="1" />True
+                    <br/>
+                    <input type="radio" name="4" value="0" />False
+
+                </div>
+                <div id="5">
+                    <label>5.Yuan is the currency of China</label>
+                    <br/>
+                    <input type="radio" name="5" value="1" />True
+                    <br/>
+                    <input type="radio" name="5" value="0" />False
+                </div>
+                <div id="6">
+                    <label>6 .Nelson Mandela was elected as the first president of south Africa in 1994. </label>
+                    <br/>
+                    <input type="radio" name="6" value="1" />True
+                    <br/>
+                    <input type="radio" name="6" value="0" />False
+
+                </div>
+                <div id="7">
+                    <label>7 .The Nile is the longest river in the world </label>
+                    <br/>
+                    <input type="radio" name="7" value="1" />True
+                    <br/>
+                    <input type="radio" name="7" value="0" />False
+
+                </div>
+                <div id="8">
+                    <label>8 .The hardest substance in the human body is bone. </label>
+                    <br/>
+                    <input type="radio" name="8" value="1" />True
+                    <br/>
+                    <input type="radio" name="8" value="0" />False
+
+                </div>
+                <div id="9">
+                    <label>9 .One thousand bytes is equivalent to ten kilobytes. </label>
+                    <br/>
+                    <input type="radio" name="9" value="1" />True
+                    <br/>
+                    <input type="radio" name="9" value="0" />False
+
+                </div>
+                <div id="10">
+                    <label>10 .Cats and tigers have similar eyes. </label>
+                    <br/>
+                    <input type="radio" name="10" value="1" />True
+                    <br/>
+                    <input type="radio" name="10" value="0" />False
+
+                </div>
+
+
+
             </div>
-            </div>
-   
-   <!-- <form id="form"> -->
-        <div class="row "></div>
-        <div class="page-container col-lg-8 mx-auto bg-info  p-4 mr-3">
-            
-       <div id="1">
-   <label>1.When a user views a page containing a JavaScript programe which 
-       machine actually executes the script? </label><br/>
-   <input type="radio" name="1" value="1" />True<br/>
-   <input type="radio" name="1" value="0"/>False
-   
-</div>
-<div id="2">
-   <label>2 .What are variables used for in JavaScript Programs? </label><br/>
-   <input type="radio" name="2" value="1" />True<br/>
-   <input type="radio" name="2" value="0"/>False
-  
-</div>
-<div id="3"> 
-   <label>3 .What is the correct JavaScript syntax to write "Hello World"? </label><br/>
-   <input type="radio" name="3" value="1" />True<br/>
-   <input type="radio" name="3" value="0"/>False
-   
-</div>
-<div id="4"> 
-   <label>4 .The _______ method of an Array object adds and/or removes elements from an array. </label><br/>
-   <input type="radio" name="4" value="1" />True<br/>
-   <input type="radio" name="4" value="0"/>False
-  
-</div>
-   <div id="5">
-   <label>5. Is it possible to nest functions in JavaScript?</label><br/>
-   <input type="radio" name="5" value="1" />True<br/>
-   <input type="radio" name="5" value="0"/>False
-  <!-- <input type="radio" name="5" value="3"/>you -->
-   <!-- <input type="radio" name="5" value="4"/>me <br/> -->
-   </div>
-   <div id="6">
-   <label>6 .What is mean by "this" keyword in javascript? </label><br/>
-   <input type="radio" name="6" value="1" />True<br/>
-   <input type="radio" name="6" value="0"/>False
-   
-</div>
-   <div id="7">
-   <label>7 . In JavaScript, Window.prompt() method return true or false value ? </label><br/>
-   <input type="radio" name="7" value="1" />True<br/>
-   <input type="radio" name="7" value="0"/>False
-  
-</div>
-   <div id="8">
-   <label>8 .what is your name </label><br/>
-   <input type="radio" name="8" value="1" />True<br/>
-   <input type="radio" name="8" value="0"/>False
-   
-</div>
-   <div id="9">
-   <label>9 .what is your name </label><br/>
-   <input type="radio" name="9" value="1" />True<br/>
-   <input type="radio" name="9" value="0"/>False
-  
-</div>
-   <div id="10">
-   <label>10 .what is your name </label><br/>
-   <input type="radio" name="10" value="1" />True<br/>
-   <input type="radio" name="10" value="0"/>False
-  
-</div>
-   
-<!-- </form> -->
-   <button id="restart" >Re start</button>
-</div>
-</div>
-</div>
-   <script type="text/javascript" src="assets/javascript/app.js"></script>
+        </div>
+    <!-- </div> -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
+
 </html>

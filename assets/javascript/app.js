@@ -59,7 +59,7 @@ $(document).ready(function () {
                     }
                     $("#" + this.questions[this.index]).hide();
                     $("#result-text").html('Ooops!!!');
-                    $('#correct-answer').html("Your are not correct the answer is ." + this.computerAnswer);
+                    $('#correct-answer').html("Your are not correct the answer is " + this.computerAnswer);
                     $("#image").html("<img src='assets/images/ohhno1.png' alt='Smiley face'  >");
 
                     $("#result").show();

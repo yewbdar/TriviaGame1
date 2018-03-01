@@ -2,6 +2,7 @@ $(document).ready(function () {
     $("#form").hide();
     $("#result").hide();
     $('#restart').hide();
+    $('#final-result').hide();
     $("#time").hide();
 
     var trivia = {
@@ -18,6 +19,7 @@ $(document).ready(function () {
         index: 0,
         startTimerId: 0,
         isRadioSelect: false,
+        computerAnswer:null,
 
         //hide all qustions at the beginning
         hideQustion: function () {
@@ -28,6 +30,7 @@ $(document).ready(function () {
         //If radio button select ,compare selected radio value and answer array value 
         //  ,increment index by one  ,and run startTimeOut function 
         //If not,increment index by one and run startTimeOut function  
+        //count and display correctAnswer,inCorrectAnswer,notAnswered
         getResult: function () {
 
             if (this.isRadioSelect) {
@@ -39,25 +42,28 @@ $(document).ready(function () {
                     $("#image").html("<img src='assets/images/bravo1.png' alt='Smiley face'  >");
 
                     $("#result").show();
+                    this.correctAnswer++;
                     this.index++;
                     startTimeOut();
                     this.isRadioSelect = false;
                 }
                 else {
-                    var ansr
-                    if (this.value === 0) {
-                        ansr = true;
+                    
+                    if (this.answer[this.index] === "0") {
+                       
+                        this.computerAnswer = false;
                     }
                     else {
-                        ansr = false;
+                     
+                        this.computerAnswer = true;
                     }
                     $("#" + this.questions[this.index]).hide();
-                    $("#result-text").html('ooops!!!');
-                    $('#correct-answer').html("Your are not correct the answer is " + ansr);
+                    $("#result-text").html('Ooops!!!');
+                    $('#correct-answer').html("Your are not correct the answer is ." + this.computerAnswer);
                     $("#image").html("<img src='assets/images/ohhno1.png' alt='Smiley face'  >");
 
                     $("#result").show();
-
+                       this.inCorrectAnswer++;
                     this.index++;
                     startTimeOut();
                     this.isRadioSelect = false;
@@ -65,15 +71,28 @@ $(document).ready(function () {
             }
             else {
                 $("#" + this.questions[this.index]).hide();
-                $("#result-text").html('Time out!!!');
-                $('#correct-answer').html("You didn't select the answer");
+                $("#result-text").html('Times out!!!');
+                $('#correct-answer').html("You didn't select the answer.");
                 $("#image").html("<img src='assets/images/ohhno2.png' alt='Smiley face'  >");
 
                 $("#result").show();
+                this.notAnswered++;
                 this.index++;
                 startTimeOut();
 
             }
+            if(this.index===this.questions.length){
+             
+                $("#corrects-answer").html('Correct Answer : '+this.correctAnswer);   
+                $("#incorrect-answer").html('Incorrect Answer : '+this.inCorrectAnswer); 
+                $("#not-answerd").html('Unanswered: '+this.notAnswered); 
+                $('#result').hide();
+                 $('#final-result').show(); 
+                 this.index++;
+                 startTimeOut();
+            }
+            
+
         },
 
     }
@@ -91,6 +110,8 @@ $(document).ready(function () {
             startInterval();
         }
         else {
+            $('#final-result').hide();
+            $("#time").hide();
             $('#restart').show();
         }
     }
@@ -135,16 +156,21 @@ $(document).ready(function () {
         displayQustion();
         $("#time").show();
     })
-    //clear time interval,initialize index  and second value ,uncecked all radio button and run display function
+    //clear time interval,initialize index , second  ande others property value ,
+    //uncecked all radio button and run display function
     $('#restart').on('click', function () {
         clearInterval(trivia.intervalId);
         trivia.index = 0;
         trivia.second = 11;
+        trivia.correctAnswer=0;
+        trivia.inCorrectAnswer=0;
+        trivia.notAnswered=0;
         $('input[type=radio]').each(function () {
             this.checked = false;
         })
         displayQustion();
         $("#time").show();
+        $('#final-result').hide();
     })
 })
 

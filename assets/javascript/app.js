@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     var trivia = {
 
-        second: 10,
+        second: 11,
         intervalId: null,
         answer: ["1", "0", "0", "0", "1", "1", "1", "0", "0", "0"],
         questions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
@@ -29,42 +29,46 @@ $(document).ready(function () {
         //  ,increment index by one  ,and run startTimeOut function 
         //If not,increment index by one and run startTimeOut function  
         getResult: function () {
-            debugger;
+
             if (this.isRadioSelect) {
                 if (this.value === this.answer[this.index]) {
-                    debugger;
+
                     $("#" + this.questions[this.index]).hide();
-                    $("#result").html('well done!!!');
+                    $("#result-text").html('well done!!!');
                     $('#correct-answer').html("Your answer is correct");
-                    $("#image").html("<img src='./images/bravo3.gif'");
+                    $("#image").html("<img src='assets/images/bravo1.png' alt='Smiley face'  >");
+
                     $("#result").show();
                     this.index++;
                     startTimeOut();
-                    this.isRadioSelect=false;
+                    this.isRadioSelect = false;
                 }
                 else {
-                    if(this.answer[this.index]===0){
-                        var ansr=false;
+                    var ansr
+                    if (this.value === 0) {
+                        ansr = true;
                     }
-                    else{
-                        var ansr=true;
+                    else {
+                        ansr = false;
                     }
                     $("#" + this.questions[this.index]).hide();
-                    $("#result").html('ooops!!!');
-                    $('#correct-answer').html("Your are not correct the answer is "+ ansr);
-                    $("#image").html("<img src='../assets/images/bravo2.jpeg'");
+                    $("#result-text").html('ooops!!!');
+                    $('#correct-answer').html("Your are not correct the answer is " + ansr);
+                    $("#image").html("<img src='assets/images/ohhno1.png' alt='Smiley face'  >");
+
                     $("#result").show();
-                    
+
                     this.index++;
                     startTimeOut();
-                    this.isRadioSelect=false;
+                    this.isRadioSelect = false;
                 }
             }
             else {
                 $("#" + this.questions[this.index]).hide();
-                $("#result").html('Time out!!!');
-                $('#correct-answer').html("you didn't select the answer");
-                $("#image").html("<img src='../assets/images/bravo2.jpeg'");
+                $("#result-text").html('Time out!!!');
+                $('#correct-answer').html("You didn't select the answer");
+                $("#image").html("<img src='assets/images/ohhno2.png' alt='Smiley face'  >");
+
                 $("#result").show();
                 this.index++;
                 startTimeOut();
@@ -77,7 +81,7 @@ $(document).ready(function () {
     //and  run startInterval function.
     //other wise display restart button.
     function displayQustion() {
-        debugger;
+
         $("#result").hide();
         $("#restart").hide();
         clearTimeout(trivia.startTimerId)
@@ -100,7 +104,7 @@ $(document).ready(function () {
     //run the displayQustion function after 2 second
     function startTimeOut() {
 
-        trivia.startTimerId = setTimeout(displayQustion, 2000);
+        trivia.startTimerId = setTimeout(displayQustion, 3000);
     }
 
     //decrement and display the second in each second ,and run getResult method on 0 second , 
@@ -120,7 +124,7 @@ $(document).ready(function () {
     trivia.hideQustion();
     //get the value of the selected radio button ,clear the time interval,and run getResult method.
     $('input[type=radio]').change(function () {
-        debugger
+
         trivia.isRadioSelect = true;
         clearInterval(trivia.intervalId);
         trivia.value = $(this).attr('value');
@@ -135,7 +139,7 @@ $(document).ready(function () {
     $('#restart').on('click', function () {
         clearInterval(trivia.intervalId);
         trivia.index = 0;
-        trivia.second = 10;
+        trivia.second = 11;
         $('input[type=radio]').each(function () {
             this.checked = false;
         })

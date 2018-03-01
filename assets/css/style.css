@@ -1,22 +1,26 @@
-#time.div{
-    display: inline-block;
+
+body{
+   font-size: 20px;
 }
-span{
-    display:inline-block;
-}
-row{
-    margin-top: 14%;
+.row{
+    
+    background-color: white;
 }
 input[type=radio]{
-    /* display:inline-block;
-     */
+    
      margin-left: 2%;
      
 }
-#image{
-  width: 400px;
-  height: 400px;
+#image img{
+  width: 10rem;
+  height: 10rem;
+  
 }
-/* div{
-    border: 1px solid black;
-} */
+button{
+   width: 30%;
+   height: 100%;
+   margin-top: 5%;
+} 
+#restart{
+height: 39%;
+}
